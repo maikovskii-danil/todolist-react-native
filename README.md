@@ -4,16 +4,19 @@
 
 1. Install dependencies
 
-   ```bash
-   npm clean-install
-   ```
+```bash
+npm clean-install
+```
 
 2. Start the app (IOS or Android)
 
-   ```bash
-   npm run ios
-   npm run android
-   ```
+```bash
+npm run ios
+```
+
+```bash
+npm run android
+```
 
 ## Environment
 
