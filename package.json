@@ -21,11 +21,17 @@
   },
   "scripts": {
     "start": "expo start",
-    "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "format": "prettier --write --ignore-unknown src/",
+    "prettierCheck": "prettier --check --ignore-unknown src/",
+    "prelint": "npm clean-install --ignore-scripts --fund false --audit false",
+    "lint": "npm run lintOnly",
+    "lintOnly": "expo lint",
+    "postlintOnly": "echo 'lint is done'",
+    "typecheck": "tsc --noEmit",
+    "posttypecheck": "echo 'typecheck is done'"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",
