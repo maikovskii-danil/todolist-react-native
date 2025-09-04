@@ -2,6 +2,23 @@
   "name": "react-native-example-app",
   "main": "expo-router/entry",
   "version": "1.0.0",
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false,
+    "experimentalTernaries": true,
+    "experimentalOperatorPosition": "start",
+    "quoteProps": "consistent",
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "objectWrap": "preserve",
+    "bracketSameLine": false,
+    "arrowParens": "always",
+    "endOfLine": "lf",
+    "singleAttributePerLine": true
+  },
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
@@ -44,6 +61,7 @@
     "@types/react": "~19.0.10",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~9.2.0",
+    "prettier": "^3.6.2",
     "typescript": "~5.8.3"
   },
   "private": true
