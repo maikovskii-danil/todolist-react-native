@@ -2,6 +2,7 @@
   "name": "react-native-example-app",
   "main": "expo-router/entry",
   "version": "1.0.0",
+  "private": true,
   "prettier": {
     "semi": true,
     "singleQuote": true,
@@ -21,11 +22,24 @@
   },
   "scripts": {
     "start": "expo start",
-    "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "format": "prettier --write --ignore-unknown .",
+    "prettierCheck": "prettier --check --ignore-unknown .",
+    "prelint": "npm clean-install --ignore-scripts --fund false --audit false",
+    "lint": "npm run lintOnly",
+    "lintOnly": "expo lint",
+    "postlintOnly": "echo 'lint is done'",
+    "typecheck": "tsc --noEmit",
+    "posttypecheck": "echo 'typecheck is done'",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,js,jsx,tsx}": [
+      "npm run lintOnly",
+      "npm run prettierCheck"
+    ]
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",
@@ -62,7 +76,26 @@
     "eslint": "^9.25.0",
     "eslint-config-expo": "~9.2.0",
     "prettier": "^3.6.2",
-    "typescript": "~5.8.3"
+    "typescript": "~5.8.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2"
   },
-  "private": true
+  "engines": {
+    "node": "^22.17.0",
+    "npm": "^11.4.2"
+  },
+  "os": [
+    "darwin",
+    "linux"
+  ],
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "onFail": "error"
+    },
+    "packageManager": {
+      "name": "npm",
+      "onFail": "error"
+    }
+  }
 }
