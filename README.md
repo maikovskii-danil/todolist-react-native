@@ -25,6 +25,6 @@ npm run android
 ⚙️ Node.js: 22.17.0
 📦 npm: 11.4.2
 
-❗ Windows are not officially supported
+❗ Windows is not officially supported
 
 ###### For IOS you need to have installed XCode, for Android - installed Android Studio
