@@ -22,7 +22,7 @@ const Header = (props: Props) => {
     <View>
       <View style={styles.headerMainContent}>
         <StyledText styleStrategy="large-bold">Todo App</StyledText>
-        <StyledText>Mon 1 Sep 18:57</StyledText>
+        <StyledText>{new Date().toDateString()}</StyledText>
       </View>
       <StyledText>
         Completed: {completedTodos} / {allTodos}
