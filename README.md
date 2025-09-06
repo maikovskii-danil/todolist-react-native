@@ -11,16 +11,16 @@ npm clean-install
 2. Start the app (IOS or Android)
 
 ```bash
-npx expo start --ios
+npm run ios
 ```
 
 ```bash
-npx expo start --android
+npm run android
 ```
 
 ## Environment
 
-🖥️ Developed and tested on macOS (for iPhone 16)
+🖥️ Developed and tested on macOS (for iPhone 12 mini)
 
 ⚙️ Node.js: 22.17.0
 📦 npm: 11.4.2
