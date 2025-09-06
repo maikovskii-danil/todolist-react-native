@@ -1,28 +1,21 @@
-import { StyleSheet, TextInput, TextInputProps } from 'react-native';
+import { TextInput, TextInputProps } from 'react-native';
 
-const styles = StyleSheet.create({
-  default: {
-    paddingVertical: 6,
-    paddingHorizontal: 8,
-    borderRadius: 6,
-    borderColor: 'black',
-    borderStyle: 'solid',
-    borderWidth: 1,
-  },
-});
+const classNames = {
+  default: 'p-2 rounded-md border-black border-solid border',
+};
 
 interface Props extends TextInputProps {
-  styleStrategy?: keyof typeof styles;
+  styleStrategy?: keyof typeof classNames;
 }
 
 const StyledTextInput = ({
   styleStrategy = 'default',
-  style,
+  className,
   ...otherProps
 }: Props) => {
   return (
     <TextInput
-      style={[styles[styleStrategy], style]}
+      className={[classNames[styleStrategy], className].join(' ')}
       {...otherProps}
     />
   );

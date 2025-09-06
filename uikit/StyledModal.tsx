@@ -1,25 +1,4 @@
-import {
-  Modal,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View,
-} from 'react-native';
-
-const styles = StyleSheet.create({
-  modalBackgroundContainer: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    display: 'flex',
-  },
-  contentContainer: {
-    margin: 'auto',
-    padding: 20,
-    borderRadius: 10,
-    width: '90%',
-    minHeight: 100,
-    backgroundColor: 'white',
-  },
-});
+import { Modal, TouchableWithoutFeedback, View } from 'react-native';
 
 interface Props {
   isOpen: boolean;
@@ -40,13 +19,18 @@ const StyledModal = (props: Props) => {
       transparent
     >
       <TouchableWithoutFeedback onPress={onClose}>
-        <View style={styles.modalBackgroundContainer}>
+        <View
+          className="flex-1 flex"
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)' }}
+        >
           <TouchableWithoutFeedback
             onPress={(evt) => {
               evt.stopPropagation();
             }}
           >
-            <View style={styles.contentContainer}>{children}</View>
+            <View className="m-auto p-5 rounded-lg w-11/12 min-h-24 bg-white">
+              {children}
+            </View>
           </TouchableWithoutFeedback>
         </View>
       </TouchableWithoutFeedback>

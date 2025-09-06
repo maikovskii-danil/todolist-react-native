@@ -29,7 +29,7 @@ const ConfirmDeleteTodoItemModal = (props: Props) => {
     >
       <StyledText
         styleStrategy="large-bold"
-        style={{ marginBottom: 12 }}
+        className="mb-3"
       >
         Are you sure?
       </StyledText>
@@ -47,7 +47,7 @@ const ConfirmDeleteTodoItemModal = (props: Props) => {
       <View>
         <StyledText styleStrategy="default-white">-</StyledText>
       </View>
-      <View style={{ display: 'flex', flexDirection: 'row', gap: 8 }}>
+      <View className="flex flex-row gap-2">
         <StyledButton
           styleStrategy="confirm"
           label="Confirm"

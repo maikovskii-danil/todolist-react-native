@@ -1,75 +1,39 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import {
-  StyleSheet,
-  TouchableOpacity,
-  TouchableOpacityProps,
-} from 'react-native';
+import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
 import StyledText from './StyledText';
 
-const styles = StyleSheet.create({
-  'default': {
-    backgroundColor: 'coral',
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: 12,
-    display: 'flex',
-    justifyContent: 'center',
-    alignContent: 'center',
-  },
-  'confirm': {
-    backgroundColor: 'blue',
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: 12,
-    display: 'flex',
-    justifyContent: 'center',
-    alignContent: 'center',
-  },
-  'custom': {},
-  'icon-delete': {
-    backgroundColor: 'red',
-    paddingHorizontal: 6,
-    paddingVertical: 6,
-    borderRadius: 8,
-    width: 36,
-    height: 36,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flex: 1,
-  },
-  'icon-edit': {
-    backgroundColor: 'purple',
-    paddingHorizontal: 6,
-    paddingVertical: 6,
-    borderRadius: 8,
-    width: 36,
-    height: 36,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flex: 1,
-  },
-});
+const classNames = {
+  'default': 'bg-cyan-400 px-3 py-1 rounded-3xl flex justify-center',
+  'confirm': 'bg-blue-500 px-3 py-1 rounded-3xl flex justify-center',
+  'custom': '',
+  'icon-microphone':
+    'bg-blue-500 px-[6px] py-1 rounded-full w-9 h-9 flex justify-center flex-1',
+  'icon-microphone-processing':
+    'bg-red-500 px-[6px] py-1 rounded-full w-9 h-9 flex justify-center flex-1',
+  'icon-delete':
+    'bg-red-500 px-[6px] py-1 rounded-lg w-9 h-9 flex justify-center flex-1',
+  'icon-edit':
+    'bg-purple-500 p-2 rounded-lg w-9 h-9 flex justify-center flex-1',
+};
 
 interface Props extends TouchableOpacityProps {
   label?: string;
-  styleStrategy?: keyof typeof styles;
+  styleStrategy?: keyof typeof classNames;
 }
 
 const StyledButton = (props: Props) => {
   const {
     label = 'button',
     styleStrategy = 'default',
-    style,
+    className,
     children,
     ...otherProps
   } = props;
 
   return (
     <TouchableOpacity
-      style={[style, styles[styleStrategy]]}
+      className={[classNames[styleStrategy], className].join(' ')}
       {...otherProps}
     >
       {styleStrategy === 'default' && <StyledText>{label}</StyledText>}
@@ -88,6 +52,20 @@ const StyledButton = (props: Props) => {
         <MaterialIcons
           name="edit"
           size={18}
+          color="white"
+        />
+      )}
+      {styleStrategy === 'icon-microphone' && (
+        <MaterialCommunityIcons
+          name="microphone"
+          size={18}
+          color="white"
+        />
+      )}
+      {styleStrategy === 'icon-microphone-processing' && (
+        <MaterialIcons
+          name="stop"
+          size={20}
           color="white"
         />
       )}

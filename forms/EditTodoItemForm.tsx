@@ -19,7 +19,7 @@ const EditTodoItemForm = (props: Props) => {
     <>
       <StyledText
         styleStrategy="large-bold"
-        style={{ marginBottom: 12 }}
+        className="mb-3"
       >
         Editing Form
       </StyledText>
@@ -31,14 +31,15 @@ const EditTodoItemForm = (props: Props) => {
         <StyledText styleStrategy="default-white">-</StyledText>
       </View>
       <StyledText>
-        &apos;<StyledText styleStrategy="bold">{todoItem.title}</StyledText>
+        &apos;
+        <StyledText styleStrategy="bold">{todoItem.title}</StyledText>
         &apos;
       </StyledText>
       <View>
         <StyledText styleStrategy="default-white">-</StyledText>
       </View>
       <StyledTextInput
-        style={{ width: 300 }}
+        className="w-75"
         placeholder="Input text"
         placeholderTextColor="gray"
         value={editableTitle}
@@ -47,7 +48,7 @@ const EditTodoItemForm = (props: Props) => {
       <View>
         <StyledText styleStrategy="default-white">-</StyledText>
       </View>
-      <View style={{ display: 'flex', flexDirection: 'row', gap: 8 }}>
+      <View className="flex flex-row gap-2">
         <StyledButton
           styleStrategy="confirm"
           label="Confirm"
