@@ -22,8 +22,8 @@
   },
   "scripts": {
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web",
     "format": "prettier --write --ignore-unknown .",
     "prettierCheck": "prettier --check --ignore-unknown .",
@@ -59,9 +59,10 @@
     "expo-symbols": "~0.4.5",
     "expo-system-ui": "~5.0.11",
     "expo-web-browser": "~14.2.0",
+    "nativewind": "^4.1.23",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "react-native": "0.79.5",
+    "react-native": "0.79.6",
     "react-native-gesture-handler": "~2.24.0",
     "react-native-reanimated": "~3.17.4",
     "react-native-safe-area-context": "5.4.0",
@@ -75,10 +76,12 @@
     "@types/react": "~19.0.10",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~9.2.0",
-    "prettier": "^3.6.2",
-    "typescript": "~5.8.3",
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.2"
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "tailwindcss": "^3.4.17",
+    "typescript": "~5.8.3"
   },
   "engines": {
     "node": "^22.17.0",

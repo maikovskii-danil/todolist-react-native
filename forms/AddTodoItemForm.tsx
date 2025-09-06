@@ -14,36 +14,28 @@ const AddTodoItemForm = (props: Props) => {
   const [newTodoText, setNewTodoText] = useState('');
 
   return (
-    <View
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        gap: 8,
-        justifyContent: 'space-between',
-        paddingVertical: 4,
-        paddingHorizontal: 4,
-      }}
-    >
+    <View className="flex flex-col gap-2 p-1">
       <StyledTextInput
-        style={{ width: 300 }}
-        placeholder="Input text"
+        placeholder="Input title of new item"
         placeholderTextColor="gray"
         value={newTodoText}
         onChangeText={setNewTodoText}
       />
-      <StyledButton
-        styleStrategy="default"
-        label="Добавить"
-        disabled={newTodoText.trim().length === 0}
-        onPress={() => {
-          onSubmit({
-            id: Date.now(),
-            title: newTodoText,
-            isCompleted: false,
-          });
-          setNewTodoText('');
-        }}
-      />
+      <View className="flex flex-row">
+        <StyledButton
+          styleStrategy="default"
+          label="Добавить"
+          disabled={newTodoText.trim().length === 0}
+          onPress={() => {
+            onSubmit({
+              id: Date.now(),
+              title: newTodoText,
+              isCompleted: false,
+            });
+            setNewTodoText('');
+          }}
+        />
+      </View>
     </View>
   );
 };

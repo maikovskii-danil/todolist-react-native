@@ -11,11 +11,11 @@ npm clean-install
 2. Start the app (IOS or Android)
 
 ```bash
-npm run ios
+npx expo start --ios
 ```
 
 ```bash
-npm run android
+npx expo start --android
 ```
 
 ## Environment

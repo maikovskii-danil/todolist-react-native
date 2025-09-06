@@ -1,38 +1,26 @@
-import { StyleSheet, Text, TextProps } from 'react-native';
+import { Text, TextProps } from 'react-native';
 
-const styles = StyleSheet.create({
-  'default': {},
-  'default-white': {
-    color: 'white',
-  },
-  'bold': {
-    fontWeight: 'bold',
-  },
-  'header-bold': {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  'large-bold': {
-    fontSize: 32,
-    fontWeight: 'bold',
-  },
-  'line-through': {
-    textDecorationLine: 'line-through',
-  },
-});
+const classNames = {
+  'default': '',
+  'default-white': 'text-white',
+  'bold': 'font-bold',
+  'header-bold': 'text-xl font-bold',
+  'large-bold': 'text-3xl font-bold',
+  'line-through': 'line-through',
+};
 
 interface Props extends TextProps {
-  styleStrategy?: keyof typeof styles;
+  styleStrategy?: keyof typeof classNames;
 }
 
 const StyledText = ({
   styleStrategy = 'default',
-  style,
+  className,
   ...otherProps
 }: Props) => {
   return (
     <Text
-      style={[style, styles[styleStrategy]]}
+      className={[classNames[styleStrategy], className].join(' ')}
       {...otherProps}
     />
   );

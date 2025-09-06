@@ -5,22 +5,7 @@ import StyledButton from '@/uikit/StyledButton';
 import StyledCheckbox from '@/uikit/StyledCheckbox';
 import StyledText from '@/uikit/StyledText';
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
-
-const styles = StyleSheet.create({
-  container: {
-    paddingVertical: 12,
-    paddingHorizontal: 12,
-    backgroundColor: 'coral',
-    borderRadius: 6,
-    display: 'flex',
-    flexDirection: 'row',
-    alignContent: 'center',
-    justifyContent: 'space-between',
-    width: '100%',
-    overflow: 'hidden',
-  },
-});
+import { View } from 'react-native';
 
 interface Props {
   todoItem: ITodoItem;
@@ -52,29 +37,28 @@ const TodoItem = (props: Props) => {
         todoItem={todoItem}
         onEdit={onEdit}
       />
-      <View style={styles.container}>
-        <View style={{ marginRight: 6 }}>
-          <StyledCheckbox
-            checked={todoItem.isCompleted}
-            onChange={() => {
-              onEdit({ ...todoItem, isCompleted: !todoItem.isCompleted });
-            }}
-          />
+      <View className="p-3 bg-cyan-400 rounded-md flex flex-row content-center justify-between w-full overflow-hidden">
+        <View className="flex flex-row">
+          <View className="mr-2">
+            <StyledCheckbox
+              checked={todoItem.isCompleted}
+              onChange={() => {
+                onEdit({ ...todoItem, isCompleted: !todoItem.isCompleted });
+              }}
+            />
+          </View>
+          <StyledText
+            className="w-60 text-left"
+            styleStrategy={todoItem.isCompleted ? 'line-through' : 'default'}
+          >
+            {todoItem.title}
+          </StyledText>
         </View>
-        <StyledText
-          style={{ width: 290 }}
-          styleStrategy={todoItem.isCompleted ? 'line-through' : 'default'}
-        >
-          {todoItem.title}
-        </StyledText>
-        <View
-          style={{ width: 90, display: 'flex', flexDirection: 'row', gap: 8 }}
-        >
+        <View className="w-20 flex flex-row gap-2">
           <StyledButton
             styleStrategy="icon-edit"
             onPress={() => {
               setIsOpenEdit(true);
-              // onEdit({ ...todoItem, title: 'edited title' });
             }}
           />
           <StyledButton

@@ -1,28 +1,5 @@
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import StyledButton from './StyledButton';
-
-const styles = StyleSheet.create({
-  container: {
-    position: 'relative',
-    borderWidth: 2,
-    borderStyle: 'solid',
-    borderColor: 'blue',
-    borderRadius: 3,
-    backgroundColor: 'white',
-    width: 16,
-    height: 16,
-  },
-  insider: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    borderRadius: 3,
-    borderWidth: 2,
-    borderStyle: 'solid',
-    borderColor: 'white',
-    backgroundColor: 'blue',
-  },
-});
 
 interface Props {
   checked?: boolean;
@@ -34,13 +11,15 @@ const StyledCheckbox = (props: Props) => {
 
   return (
     <StyledButton
-      style={styles.container}
+      className="relative border-solid border-blue-500 border-2 rounded bg-white w-4 h-4"
       styleStrategy="custom"
       onPress={() => {
         onChange(!checked);
       }}
     >
-      {checked && <View style={styles.insider}></View>}
+      {checked && (
+        <View className="absolute w-full h-full rounded border-2 border-solid border-white bg-blue-500"></View>
+      )}
     </StyledButton>
   );
 };

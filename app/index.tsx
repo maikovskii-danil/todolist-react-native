@@ -1,14 +1,11 @@
+import './index.css';
+
 import TodoItem from '@/components/TodoItem';
 import { todosExample } from '@/consts';
 import AddTodoItemForm from '@/forms/AddTodoItemForm';
 import Header from '@/layout/Header';
-import { FlatList, StatusBar, StyleSheet, View } from 'react-native';
+import { FlatList, StatusBar, View } from 'react-native';
 import { useImmer } from 'use-immer';
-
-const styles = StyleSheet.create({
-  container: { backgroundColor: 'white', flex: 1 },
-  list: { paddingVertical: 12 },
-});
 
 export default function Index() {
   const [todos, updateTodos] = useImmer(todosExample);
@@ -16,7 +13,7 @@ export default function Index() {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <View style={styles.container}>
+      <View className="bg-white flex-1">
         <Header
           allTodos={todos.length}
           completedTodos={todos.filter((item) => item.isCompleted).length}
@@ -29,11 +26,11 @@ export default function Index() {
           }}
         />
         <FlatList
-          style={styles.list}
+          className="py-3"
           data={todos}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
-            <View style={{ paddingVertical: 2, paddingHorizontal: 4 }}>
+            <View className="py-1 px-2">
               <TodoItem
                 todoItem={item}
                 onEdit={(editedTodoItem) => {

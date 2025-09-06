@@ -1,14 +1,5 @@
 import StyledText from '@/uikit/StyledText';
-import { StyleSheet, View } from 'react-native';
-
-const styles = StyleSheet.create({
-  headerMainContent: {
-    paddingTop: 80,
-    paddingBottom: 20,
-    display: 'flex',
-    alignItems: 'center',
-  },
-});
+import { View } from 'react-native';
 
 interface Props {
   allTodos: number;
@@ -20,9 +11,16 @@ const Header = (props: Props) => {
 
   return (
     <View>
-      <View style={styles.headerMainContent}>
-        <StyledText styleStrategy="large-bold">Todo App</StyledText>
-        <StyledText>Mon 1 Sep 18:57</StyledText>
+      <View className="pt-20 pb-5 w-full">
+        <StyledText
+          className="text-center"
+          styleStrategy="large-bold"
+        >
+          Todo App
+        </StyledText>
+        <StyledText className="text-center">
+          {new Date().toDateString()}
+        </StyledText>
       </View>
       <StyledText>
         Completed: {completedTodos} / {allTodos}
