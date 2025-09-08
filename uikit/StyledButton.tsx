@@ -4,17 +4,18 @@ import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
 import StyledText from './StyledText';
 
 const classNames = {
-  'default': 'bg-cyan-400 px-3 py-1 rounded-3xl flex justify-center',
+  'default': 'bg-blue-500 px-3 py-1 rounded-3xl flex justify-center',
   'confirm': 'bg-blue-500 px-3 py-1 rounded-3xl flex justify-center',
+  'danger': 'bg-red-500 px-3 py-1 rounded-3xl flex justify-center',
   'custom': '',
   'icon-microphone':
-    'bg-blue-500 px-[6px] py-1 rounded-full w-9 h-9 flex justify-center flex-1',
+    'bg-blue-500 py-1 rounded-full w-9 h-9 flex justify-center items-center flex-shrink-0',
   'icon-microphone-processing':
-    'bg-red-500 px-[6px] py-1 rounded-full w-9 h-9 flex justify-center flex-1',
+    'bg-red-500 py-1 rounded-full w-9 h-9 flex justify-center items-center flex-shrink-0',
   'icon-delete':
-    'bg-red-500 px-[6px] py-1 rounded-lg w-9 h-9 flex justify-center flex-1',
+    'bg-red-500 rounded-lg w-9 h-9 flex justify-center items-center flex-shrink-0',
   'icon-edit':
-    'bg-purple-500 p-2 rounded-lg w-9 h-9 flex justify-center flex-1',
+    'bg-purple-500 rounded-lg w-9 h-9 flex justify-center items-center flex-shrink-0',
 };
 
 interface Props extends TouchableOpacityProps {
@@ -36,9 +37,8 @@ const StyledButton = (props: Props) => {
       className={[classNames[styleStrategy], className].join(' ')}
       {...otherProps}
     >
-      {styleStrategy === 'default' && <StyledText>{label}</StyledText>}
-      {styleStrategy === 'confirm' && (
-        <StyledText styleStrategy="default-white">{label}</StyledText>
+      {['default', 'danger', 'confirm'].includes(styleStrategy) && (
+        <StyledText styleStrategy="bold-white">{label}</StyledText>
       )}
       {styleStrategy === 'custom' && children}
       {styleStrategy === 'icon-delete' && (

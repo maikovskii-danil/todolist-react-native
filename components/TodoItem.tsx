@@ -37,7 +37,7 @@ const TodoItem = (props: Props) => {
         todoItem={todoItem}
         onEdit={onEdit}
       />
-      <View className="p-3 bg-cyan-400 rounded-md flex flex-row content-center justify-between w-full overflow-hidden">
+      <View className="p-3 bg-blue-300 rounded-md flex flex-row content-center justify-between w-full overflow-hidden">
         <View className="flex flex-row">
           <View className="mr-2">
             <StyledCheckbox
@@ -48,7 +48,7 @@ const TodoItem = (props: Props) => {
             />
           </View>
           <StyledText
-            className="w-60 text-left"
+            className="w-60 text-left font-bold"
             styleStrategy={todoItem.isCompleted ? 'line-through' : 'default'}
           >
             {todoItem.title}

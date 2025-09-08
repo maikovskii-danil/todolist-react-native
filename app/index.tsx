@@ -2,13 +2,16 @@ import './index.css';
 
 import TodoItem from '@/components/TodoItem';
 import { todosExample } from '@/consts';
-import AddTodoItemForm from '@/forms/AddTodoItemForm';
 import Header from '@/layout/Header';
+import AddTodoItemModal from '@/modals/AddTodoItemModal';
+import StyledButton from '@/uikit/StyledButton';
+import { useState } from 'react';
 import { FlatList, StatusBar, View } from 'react-native';
 import { useImmer } from 'use-immer';
 
 export default function Index() {
   const [todos, updateTodos] = useImmer(todosExample);
+  const [isOpenAddItemModal, setIsOpenAddItemModal] = useState(false);
 
   return (
     <>
@@ -18,11 +21,24 @@ export default function Index() {
           allTodos={todos.length}
           completedTodos={todos.filter((item) => item.isCompleted).length}
         />
-        <AddTodoItemForm
+        <View className="flex flex-row p-1">
+          <StyledButton
+            label="Add new item"
+            onPress={() => {
+              setIsOpenAddItemModal(true);
+            }}
+          />
+        </View>
+        <AddTodoItemModal
+          key={String(isOpenAddItemModal)}
+          isOpen={isOpenAddItemModal}
           onSubmit={(newTodoItem) => {
             updateTodos((draft) => {
               draft.push(newTodoItem);
             });
+          }}
+          onClose={() => {
+            setIsOpenAddItemModal(false);
           }}
         />
         <FlatList

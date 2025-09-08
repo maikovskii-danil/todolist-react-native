@@ -4,6 +4,7 @@ const classNames = {
   'default': '',
   'default-white': 'text-white',
   'bold': 'font-bold',
+  'bold-white': 'font-bold text-white',
   'header-bold': 'text-xl font-bold',
   'large-bold': 'text-3xl font-bold',
   'line-through': 'line-through',
