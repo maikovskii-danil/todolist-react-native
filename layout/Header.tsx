@@ -10,13 +10,13 @@ const Header = (props: Props) => {
   const { allTodos, completedTodos } = props;
 
   return (
-    <View>
-      <View className="pt-20 pb-5 w-full">
+    <View className="px-1 pt-20 pb-2">
+      <View className="pb-5 w-full">
         <StyledText
           className="text-center"
           styleStrategy="large-bold"
         >
-          Todo App
+          Todolist App
         </StyledText>
         <StyledText className="text-center">
           {new Date().toDateString()}

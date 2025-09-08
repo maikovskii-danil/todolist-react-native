@@ -59,6 +59,7 @@ const EditTodoItemForm = (props: Props) => {
           }}
         />
         <StyledButton
+          styleStrategy="danger"
           label="Close"
           onPress={onClose}
         />
