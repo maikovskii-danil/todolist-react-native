@@ -5,17 +5,19 @@
 1. Install dependencies
 
 ```bash
-npm clean-install
+npm ci --ignore-scripts
 ```
 
-2. Start the app (IOS or Android)
+2. Start the app (iOS)
 
 ```bash
 npm run ios
 ```
 
+###### or use web as fallback
+
 ```bash
-npm run android
+npm run web
 ```
 
 ## Environment
@@ -27,4 +29,4 @@ npm run android
 
 ❗ Windows is not officially supported
 
-###### For IOS you need to have installed XCode, for Android - installed Android Studio
+###### For IOS you need to have installed XCode
