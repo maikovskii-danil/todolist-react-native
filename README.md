@@ -29,6 +29,7 @@ npm run web
 🖥️ Developed and tested on macOS (for iPhone 12 mini)
 
 ⚙️ Node.js: 22.17.0
+
 📦 npm: 11.4.2
 
 ❗ Windows is not officially supported
