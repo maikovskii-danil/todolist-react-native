@@ -15,10 +15,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22.17.0'
-      - name: Clear npm cache
-        run: npm cache clean --force
       - name: Install specific npm version
         run: npm install --audit false --fund false -g npm@11.4.2
+      - name: Clear npm cache
+        run: npm cache clean --force
 
       - uses: actions/checkout@v4
 
