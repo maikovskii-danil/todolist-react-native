@@ -18,10 +18,6 @@ npm run ios
 npm run android
 ```
 
-```bash
-npm run web
-```
-
 ###### for android - in /android/local.properties add sdk.dir
 
 ```bash
