@@ -5,11 +5,9 @@ on: [pull_request]
 permissions: {}
 
 jobs:
-  prepare-environment:
-    name: Setup Node.js + npm, and install
+  audit:
+    name: Audit
     runs-on: ubuntu-latest
-    outputs:
-      node-version: '22.17.0'
     steps:
       - uses: actions/setup-node@v4
         with:
@@ -18,17 +16,6 @@ jobs:
         run: npm install --audit false --fund false -g npm@11.4.2
       - name: Clear npm cache
         run: npm cache clean --force
-
-  audit:
-    name: Audit
-    runs-on: ubuntu-latest
-    needs: prepare-environment
-    steps:
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22.17.0'
-      - name: Install specific npm version
-        run: npm install --audit false --fund false -g npm@11.4.2
       - uses: actions/checkout@v4
       - name: Audit Check
         run: npm audit
@@ -36,13 +23,14 @@ jobs:
   eslint:
     name: ESLint
     runs-on: ubuntu-latest
-    needs: prepare-environment
     steps:
       - uses: actions/setup-node@v4
         with:
           node-version: '22.17.0'
       - name: Install specific npm version
         run: npm install --audit false --fund false -g npm@11.4.2
+      - name: Clear npm cache
+        run: npm cache clean --force
       - uses: actions/checkout@v4
       - name: Install dependencies
         run: npm ci --ignore-scripts --audit false --fund false
@@ -52,13 +40,14 @@ jobs:
   prettier:
     name: Prettier
     runs-on: ubuntu-latest
-    needs: prepare-environment
     steps:
       - uses: actions/setup-node@v4
         with:
           node-version: '22.17.0'
       - name: Install specific npm version
         run: npm install --audit false --fund false -g npm@11.4.2
+      - name: Clear npm cache
+        run: npm cache clean --force
       - uses: actions/checkout@v4
       - name: Install dependencies
         run: npm ci --ignore-scripts --audit false --fund false
@@ -68,13 +57,14 @@ jobs:
   typecheck:
     name: TypeScript Check
     runs-on: ubuntu-latest
-    needs: prepare-environment
     steps:
       - uses: actions/setup-node@v4
         with:
           node-version: '22.17.0'
       - name: Install specific npm version
         run: npm install --audit false --fund false -g npm@11.4.2
+      - name: Clear npm cache
+        run: npm cache clean --force
       - uses: actions/checkout@v4
       - name: Install dependencies
         run: npm ci --ignore-scripts --audit false --fund false
