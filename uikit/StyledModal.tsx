@@ -19,10 +19,7 @@ const StyledModal = (props: Props) => {
       transparent
     >
       <TouchableWithoutFeedback onPress={onClose}>
-        <View
-          className="flex-1 flex"
-          style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)' }}
-        >
+        <View className="flex-1 flex bg-[#000000aa]">
           <TouchableWithoutFeedback
             onPress={(evt) => {
               evt.stopPropagation();
