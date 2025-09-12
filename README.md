@@ -8,13 +8,21 @@
 npm ci --ignore-scripts
 ```
 
-2. Start the app (iOS)
+2. Start the app (iOS/Android/Web)
 
 ```bash
 npm run ios
 ```
 
-###### or use web as fallback
+```bash
+npm run android
+```
+
+```bash
+npm run web
+```
+
+###### for android - in /android/local.properties add sdk.dir
 
 ```bash
 npm run web

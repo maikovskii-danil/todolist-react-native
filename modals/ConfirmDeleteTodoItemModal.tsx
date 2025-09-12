@@ -2,7 +2,6 @@ import { ITodoItem } from '@/types';
 import StyledButton from '@/uikit/StyledButton';
 import StyledModal from '@/uikit/StyledModal';
 import StyledText from '@/uikit/StyledText';
-import { useState } from 'react';
 import { View } from 'react-native';
 
 interface Props {
@@ -15,17 +14,10 @@ interface Props {
 const ConfirmDeleteTodoItemModal = (props: Props) => {
   const { isOpen, onClose, todoItem, onDelete } = props;
 
-  const [isConfirmedDelete, setIsConfirmedDelete] = useState(false);
-
   return (
     <StyledModal
       isOpen={isOpen}
       onClose={onClose}
-      onDismiss={() => {
-        if (isConfirmedDelete) {
-          onDelete(todoItem.id);
-        }
-      }}
     >
       <StyledText
         styleStrategy="large-bold"
@@ -52,8 +44,8 @@ const ConfirmDeleteTodoItemModal = (props: Props) => {
           styleStrategy="confirm"
           label="Confirm"
           onPress={() => {
-            setIsConfirmedDelete(true);
             onClose();
+            onDelete(todoItem.id);
           }}
         />
         <StyledButton

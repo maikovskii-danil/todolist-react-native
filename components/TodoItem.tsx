@@ -27,7 +27,9 @@ const TodoItem = (props: Props) => {
           setIsOpenConfirmDelete(false);
         }}
         todoItem={todoItem}
-        onDelete={onDelete}
+        onDelete={(id) => {
+          onDelete(id);
+        }}
       />
       <EditTodoItemModal
         isOpen={isOpenEdit}
