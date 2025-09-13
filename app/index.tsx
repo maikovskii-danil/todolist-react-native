@@ -17,18 +17,6 @@ export default function Index() {
     <>
       <StatusBar barStyle="dark-content" />
       <View className="bg-white flex-1">
-        <Header
-          allTodos={todos.length}
-          completedTodos={todos.filter((item) => item.isCompleted).length}
-        />
-        <View className="flex flex-row p-1">
-          <StyledButton
-            label="Add new item"
-            onPress={() => {
-              setIsOpenAddItemModal(true);
-            }}
-          />
-        </View>
         <AddTodoItemModal
           key={String(isOpenAddItemModal)}
           isOpen={isOpenAddItemModal}
@@ -41,6 +29,18 @@ export default function Index() {
             setIsOpenAddItemModal(false);
           }}
         />
+        <Header
+          allTodos={todos.length}
+          completedTodos={todos.filter((item) => item.isCompleted).length}
+        />
+        <View className="flex flex-row p-1">
+          <StyledButton
+            label="Add new item"
+            onPress={() => {
+              setIsOpenAddItemModal(true);
+            }}
+          />
+        </View>
         <FlatList
           className="py-3"
           data={todos}
